@@ -40,10 +40,11 @@
         android:text="reset"
         android:id="@+id/reset" />
 
-    <Button
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="text"
-        android:id="@+id/text" />
+        android:editable="false"
+        android:id="@+id/editText" />
+
 
 </LinearLayout>

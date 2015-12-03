@@ -1,5 +1,7 @@
 package com.sora.progressbar;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private Button reset;
     private ProgressBar progressBar;
     private EditText editText;
+    private ProgressDialog progressDialog;
+    private Button show;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +61,12 @@ public class MainActivity extends AppCompatActivity {
                 super.onClick(v);
             }
         });
+        show.setOnClickListener(new MyOnClickListener(){
+            @Override
+            public void onClick(View v) {
+                super.onClick(v);
+            }
+        });
     }
 
     private void init() {
@@ -64,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
         reduce = (Button) findViewById(R.id.reduce);
         reset = (Button) findViewById(R.id.reset);
         editText = (EditText) findViewById(R.id.editText);
+        show = (Button) findViewById(R.id.show);
+
         int first = progressBar.getProgress();
         int second = progressBar.getSecondaryProgress();
         int max = progressBar.getMax();
@@ -112,6 +125,32 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.reset:{
                     progressBar.setProgress(50);
                     progressBar.setSecondaryProgress(80);
+                    break;
+                }
+                case R.id.show:{
+                    //页面显示风格
+                    //新建ProgreeDialog对象
+                    progressDialog = new ProgressDialog(getApplicationContext());
+                    progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                    progressDialog.setTitle("我好方");
+                    progressDialog.setMessage("我也很方");
+                    progressDialog.setIcon(R.mipmap.ic_launcher);
+                    //设定关于ProgressBar的一些属性
+                    progressDialog.setMax(100);
+                    progressDialog.incrementProgressBy(50);
+                    progressDialog.setIndeterminate(false);
+                    //设定一个确定按钮
+                    progressDialog.setButton(DialogInterface.BUTTON_POSITIVE,"确定",new DialogInterface.OnClickListener(){
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(getApplicationContext(),"大家一起方",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    //设定取消按钮
+                    progressDialog.setCancelable(true);
+                    //显示ProgressDialog
+                    progressDialog.show();
                     break;
                 }
             }

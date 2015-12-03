@@ -46,5 +46,11 @@
         android:editable="false"
         android:id="@+id/editText" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/show"
+        android:text="show"/>
+
 
 </LinearLayout>

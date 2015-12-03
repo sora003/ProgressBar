@@ -154,8 +154,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 }
             }
-            //editText.setText("第一进度百分比："+(int)(progressBar.getProgress()/(float)progressBar.getMax()*100)+
-           //         "%    第二进度百分比："+(int)(progressBar.getSecondaryProgress()/(float)progressBar.getMax()*100)+"%");
+            editText.setText("第一进度百分比："+(int)(progressBar.getProgress()/(float)progressBar.getMax()*100)+
+                    "%    第二进度百分比："+(int)(progressBar.getSecondaryProgress()/(float)progressBar.getMax()*100)+"%");
         }
     }
 }

@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.show:{
                     //页面显示风格
                     //新建ProgreeDialog对象
-                    progressDialog = new ProgressDialog(getApplicationContext());
+                    progressDialog = new ProgressDialog(MainActivity.this);
                     progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
                     progressDialog.setTitle("我好方");
                     progressDialog.setMessage("我也很方");
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(getApplicationContext(),"大家一起方",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this,"大家一起方",Toast.LENGTH_SHORT).show();
                         }
                     });
                     //设定取消按钮
@@ -154,8 +154,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 }
             }
-            editText.setText("第一进度百分比："+(int)(progressBar.getProgress()/(float)progressBar.getMax()*100)+
-                    "%    第二进度百分比："+(int)(progressBar.getSecondaryProgress()/(float)progressBar.getMax()*100)+"%");
+            //editText.setText("第一进度百分比："+(int)(progressBar.getProgress()/(float)progressBar.getMax()*100)+
+           //         "%    第二进度百分比："+(int)(progressBar.getSecondaryProgress()/(float)progressBar.getMax()*100)+"%");
         }
     }
 }
